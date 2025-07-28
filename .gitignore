@@ -1,0 +1,17 @@
+<!-- .gitignore -->
+<!--
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore optional IDE/editor folders
+.vscode/
+.idea/
+
+# Ignore build/output directories (if using later)
+dist/
+build/
+
+# Node (if adding scripts later)
+node_modules/
+-->
