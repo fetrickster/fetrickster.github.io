@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiniTwitter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #fef6e4;
+      color: #001858;
+      display: flex;
+    }
+
+    header {
+      background-color: #f582ae;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: #ffffff;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #fcd5ce;
+      padding: 6rem 1rem 2rem;
+      box-sizing: border-box;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .sidebar h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .container {
+      margin-left: 250px;
+      max-width: 600px;
+      padding: 6rem 1rem 2rem;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .tweet-box {
+      background-color: #e4c1f9;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .tweet-box textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      resize: none;
+    }
+
+    .tweet-box button {
+      margin-top: 1rem;
+      background-color: #8bd3dd;
+      border: none;
+      color: #001858;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      float: right;
+    }
+
+    .tweet {
+      background-color: #d8e2dc;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .tweet h3 {
+      margin: 0 0 0.25rem 0;
+      font-size: 1rem;
+    }
+
+    .tweet p {
+      margin: 0.5rem 0 0 0;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+
+      .container {
+        margin-left: 0;
+        padding: 6rem 1rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>@YourProfile</h2>
+    <p>Web Developer. Tweeting about code & coffee.</p>
+  </div>
+
+  <div style="width: 100%">
+    <header>
+      <h1>MiniTwitter</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Explore</a>
+        <a href="#">Profile</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="tweet-box">
+        <textarea id="tweetInput" rows="3" placeholder="What's happening?"></textarea>
+        <button onclick="postTweet()">Tweet</button>
+      </div>
+
+      <div id="tweetsContainer"></div>
+    </div>
+  </div>
+
+  <script>
+    function postTweet() {
+      const input = document.getElementById('tweetInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const tweet = {
+        username: '@you',
+        content: text,
+        timestamp: new Date().toLocaleTimeString()
+      };
+
+      // Save to localStorage (simulated backend)
+      const tweets = JSON.parse(localStorage.getItem('tweets')) || [];
+      tweets.unshift(tweet);
+      localStorage.setItem('tweets', JSON.stringify(tweets));
+
+      input.value = '';
+      renderTweets();
+    }
+
+    function renderTweets() {
+      const tweets = JSON.parse(localStorage.getItem('tweets')) || [];
+      const container = document.getElementById('tweetsContainer');
+      container.innerHTML = '';
+
+      tweets.forEach(tweet => {
+        const div = document.createElement('div');
+        div.className = 'tweet';
+        div.innerHTML = `<h3>${tweet.username} <span style="font-weight: normal; font-size: 0.8rem; color: #555;">${tweet.timestamp}</span></h3><p>${tweet.content}</p>`;
+        container.appendChild(div);
+      });
+    }
+
+    // Initialize
+    renderTweets();
+  </script>
+</body>
+</html>
