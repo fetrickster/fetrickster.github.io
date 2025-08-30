@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>fetrickster | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
-      --bg-color: #f5f0e1;
-      --text-color: #3e3e3e;
-      --header-bg: #c9cba3;
-      --card-bg: #dcedc1;
-      --hover-color: #8b9e78;
+      --bg-color: #1e1e1e;
+      --text-color: #eaeaea;
+      --header-bg: #2e2e2e;
+      --card-bg: #2c3e3e;
+      --hover-color: #9cc49c;
+      --link-color: #80cbc4;
     }
 
     * {
@@ -30,7 +32,7 @@
     header {
       background-color: var(--header-bg);
       padding: 2rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
       text-align: center;
     }
 
@@ -40,7 +42,7 @@
     }
 
     header p {
-      color: #444;
+      color: #bbb;
       margin-top: 0.5rem;
     }
 
@@ -54,7 +56,7 @@
 
     nav a {
       text-decoration: none;
-      color: var(--text-color);
+      color: var(--link-color);
       font-weight: 500;
     }
 
@@ -75,21 +77,28 @@
     h2 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
+      color: var(--hover-color);
     }
 
     .project {
       background: var(--card-bg);
       padding: 1.5rem;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       margin-bottom: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
     }
 
     footer {
       text-align: center;
       padding: 2rem;
       background-color: var(--header-bg);
-      color: #555;
+      color: #888;
       font-size: 0.9rem;
       margin-top: 3rem;
     }
@@ -99,49 +108,70 @@
       max-width: 200px;
       margin: 2rem auto;
       border-radius: 50%;
-      border: 3px solid #ccc;
+      border: 3px solid #555;
     }
 
     .resume-button {
       display: inline-block;
       margin-top: 1rem;
       background-color: var(--hover-color);
-      color: white;
+      color: #1e1e1e;
       padding: 0.5rem 1rem;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 500;
     }
 
+    .social-links {
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      margin: 0 0.5rem;
+      color: var(--link-color);
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      color: var(--hover-color);
+    }
+
     @media (max-width: 600px) {
+      body {
+        font-size: 0.95rem;
+        padding: 0.5rem;
+      }
       header h1 {
         font-size: 1.5rem;
       }
-
       nav {
         flex-direction: column;
         gap: 0.75rem;
+      }
+      .project {
+        padding: 1rem;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="avatar2.png" alt="Portfolio Image" class="portfolio-image">
+    <img src="L.jpg" alt="Profile picture of fetrickster" class="portfolio-image">
     <h1>fetrickster</h1>
-    <p>Software Developer | Designer | DevOps</p>
+    <p>Software Dev | Pen Tester | DevOps</p>
     <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <a href="#about" aria-label="About section">About</a>
+      <a href="#projects" aria-label="Projects section">Projects</a>
+      <a href="#contact" aria-label="Contact section">Contact</a>
     </nav>
-    <a href="Resume.pdf" class="resume-button" download>Download Resume</a>
+    <a href="Resume.pdf" class="resume-button" download aria-label="Download Resume">Download Resume</a>
   </header>
 
   <main>
     <section id="about">
       <h2>About Me</h2>
-      <p>Hello! I'm a passionate software developer with a focus on creating clean and minimal user experiences. I specialize in Python, Java, Rust, and modern frameworks. Let's build something great together!</p>
+      <p>Hello! I'm a passionate software developer with a focus on creating clean and minimal user experiences. I specialize in Java, Python, and modern frameworks. Let's build something great together!</p>
     </section>
 
     <section id="projects">
@@ -158,7 +188,10 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Feel free to reach out via <a href="mailto:fetrickster.wtf@gmail.com">fetrickster.wtf@gmail.com</a> or connect on LinkedIn/GitHub.</p>
+      <p>Feel free to reach out via <a href="mailto:fetrickster.wtf@gmail.com">fetrickster.wtf@gmail.com</a></p>
+      <div class="social-links">
+        <a href="https://github.com/fetrickster" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+      </div>
     </section>
   </main>
 
