@@ -6,6 +6,7 @@
   <title>fetrickster | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!--
   <style>
     :root {
       --bg-color: #1e1e1e;
@@ -154,6 +155,169 @@
       }
     }
   </style>
+-->
+  <style>
+  :root {
+    --bg-color: #f7f9fc;
+    --text-color: #4a4a4a;
+    --header-bg: #eaf1fb;
+    --card-bg: #ffffff;
+    --hover-color: #a8caff;
+    --link-color: #89a7ff;
+    --accent-soft: #ffd6e0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+
+  header {
+    background-color: var(--header-bg);
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #5a6fa8;
+  }
+
+  header p {
+    color: #7d8ca3;
+    margin-top: 0.5rem;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  nav a:hover {
+    color: var(--hover-color);
+  }
+
+  main {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #7aa2ff;
+  }
+
+  .project {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    margin-bottom: 1rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid #eef2f7;
+  }
+
+  .project:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--header-bg);
+    color: #9aa6b2;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+  }
+
+  .portfolio-image {
+    display: block;
+    max-width: 200px;
+    margin: 2rem auto;
+    border-radius: 50%;
+    border: 4px solid var(--accent-soft);
+  }
+
+  .resume-button {
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: var(--hover-color);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s ease;
+  }
+
+  .resume-button:hover {
+    background-color: #91b8ff;
+  }
+
+  .social-links {
+    margin-top: 1rem;
+  }
+
+  .social-links a {
+    margin: 0 0.5rem;
+    color: var(--link-color);
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .social-links a:hover {
+    color: var(--hover-color);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 600px) {
+    body {
+      font-size: 0.95rem;
+      padding: 0.5rem;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .project {
+      padding: 1rem;
+    }
+  }
+</style>
 </head>
 <body>
   <header>
